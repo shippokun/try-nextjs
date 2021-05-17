@@ -7,11 +7,29 @@
     "build": "next build",
     "start": "next start",
     "test": "echo 'test'",
-    "lint": "echo 'lint'"
+    "lint": "echo 'lint'",
+    "release": "npx standard-version",
+    "commit": "npx git-cz"
   },
   "dependencies": {
     "next": "10.2.0",
     "react": "17.0.2",
     "react-dom": "17.0.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "standard-version": {
+    "releaseCommitMessageFormat": "chore: bump v{{currentTag}}",
+    "skip": {
+      "tag": true
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
   }
 }
