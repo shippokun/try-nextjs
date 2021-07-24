@@ -12,7 +12,7 @@ module.exports = {
     "plugin:jsx-a11y/recommended",
     "plugin:prettier/recommended",
   ],
-  plugins: ["import", "@typescript-eslint", "react"],
+  plugins: ["import", "@typescript-eslint", "react", "react-hooks"],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaFeatures: {
@@ -33,6 +33,13 @@ module.exports = {
     },
   },
   rules: {
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": [
+      "warn",
+      {
+        additionalHooks: "useRecoilCallback",
+      },
+    ],
     "react/prop-types": ["off"],
     "react/react-in-jsx-scope": "off",
     "import/order": [
@@ -59,4 +66,10 @@ module.exports = {
       },
     ],
   },
+  overrides: [
+    {
+      files: ["*.config.js"],
+      rules: { "no-undef": "off" },
+    },
+  ],
 };
